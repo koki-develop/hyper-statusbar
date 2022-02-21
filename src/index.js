@@ -1,3 +1,5 @@
+import Statusline from "./components/Statusline";
+
 exports.decorateHyper = (Hyper, { React }) =>
   class extends React.Component {
     constructor(props) {
@@ -5,6 +7,11 @@ exports.decorateHyper = (Hyper, { React }) =>
     }
 
     render() {
-      return React.createElement(Hyper, this.props);
+      return React.createElement(
+        Hyper,
+        Object.assign({}, this.props, {
+          customInnerChildren: React.createElement(Statusline, {}),
+        })
+      );
     }
   };
