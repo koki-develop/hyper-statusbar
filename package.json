@@ -8,6 +8,7 @@
     "build": "webpack --mode production"
   },
   "devDependencies": {
+    "fork-ts-checker-webpack-plugin": "^7.2.1",
     "ts-loader": "^9.2.6",
     "typescript": "^4.5.5",
     "webpack": "^5.69.1",
