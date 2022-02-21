@@ -1,7 +1,7 @@
 {
   "name": "hyper-statusline",
   "version": "local",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "private": true,
   "devDependencies": {
