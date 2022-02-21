@@ -1,0 +1,7 @@
+{
+  "name": "hyper-statusline",
+  "version": "local",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true
+}
