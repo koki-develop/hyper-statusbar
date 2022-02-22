@@ -1,7 +1,9 @@
 import React from "react";
+import { IconType } from "react-icons";
 
 export type PanelProps = {
   children: React.ReactNode;
+  icon: IconType;
 };
 
 export type PanelState = {
@@ -23,6 +25,7 @@ class Panel extends React.Component<PanelProps, PanelState> {
           padding: "0px 16px",
         }}
       >
+        {React.createElement(this.props.icon, { style: { marginRight: 4 } })}
         {this.props.children}
       </div>
     );

@@ -127,11 +127,7 @@ class BatteryPanel extends React.Component<
   }
 
   render() {
-    return (
-      <Panel>
-        {React.createElement(this.state.icon)} {this.state.percentageText}%
-      </Panel>
-    );
+    return <Panel icon={this.state.icon}>{this.state.percentageText}%</Panel>;
   }
 }
 
