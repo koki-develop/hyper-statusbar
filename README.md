@@ -7,6 +7,8 @@
 
 Hyper Statusbar is a plugin for Hyper that displays a status bar.
 
+![screenshot](./README/screenshot.png)
+
 # Installation
 
 Hyper Statusbar can be cloned locally and used as a local plugin.  
