@@ -1,11 +1,23 @@
 import React from "react";
+import {
+  MdBatteryUnknown,
+  MdBattery20,
+  MdBattery30,
+  MdBattery50,
+  MdBattery60,
+  MdBattery80,
+  MdBattery90,
+  MdBatteryFull,
+} from "react-icons/md";
+import { IconType } from "react-icons";
 
 export type BatteryPanelProps = {
   //
 };
 
 export type BatteryPanelState = {
-  percentage: number | null;
+  icon: IconType;
+  percentageText: string;
 };
 
 const batteryEvents: (keyof BatteryManagerEventTargetEventMap)[] = [
@@ -22,7 +34,8 @@ class BatteryPanel extends React.Component<
   constructor(props: BatteryPanelProps) {
     super(props);
     this.state = {
-      percentage: null,
+      icon: MdBatteryUnknown,
+      percentageText: "??",
     };
   }
 
@@ -49,13 +62,44 @@ class BatteryPanel extends React.Component<
   }
 
   setBatteryState(battery: BatteryManager) {
+    const percentage = Math.trunc(battery.level * 100);
+    const icon = (() => {
+      switch (true) {
+        case percentage > 100:
+          return MdBatteryFull;
+        case percentage > 80:
+          return MdBattery90;
+        case percentage > 70:
+          return MdBattery80;
+        case percentage > 50:
+          return MdBattery60;
+        case percentage > 40:
+          return MdBattery50;
+        case percentage > 20:
+          return MdBattery30;
+        default:
+          return MdBattery20;
+      }
+    })();
+
     this.setState({
-      percentage: Math.trunc(battery.level * 100),
+      icon,
+      percentageText: percentage.toString(),
     });
   }
 
   render() {
-    return <div>percentage: {this.state.percentage}</div>;
+    return (
+      <div
+        style={{
+          alignItems: "center",
+          display: "flex",
+          padding: "0px 16px",
+        }}
+      >
+        {React.createElement(this.state.icon)} {this.state.percentageText}%
+      </div>
+    );
   }
 }
 
