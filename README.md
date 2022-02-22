@@ -16,6 +16,7 @@ First, clone this repository to `~/.hyper_plugins/local` and build it.
 
 ```
 $ git clone git@github.com:koki-develop/hyper-statusbar.git ~/.hyper_plugins/local/hyper-statusbar
+$ yarn --cwd ~/.hyper_plugins/local/hyper-statusbar install
 $ yarn --cwd ~/.hyper_plugins/local/hyper-statusbar build
 ```
 
