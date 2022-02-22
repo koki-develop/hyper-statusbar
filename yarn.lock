@@ -1613,6 +1613,11 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
+systeminformation@^5.11.4:
+  version "5.11.4"
+  resolved "https://registry.yarnpkg.com/systeminformation/-/systeminformation-5.11.4.tgz#3ed99533c67d0b4bd357871687e014f1c2a37194"
+  integrity sha512-rh7bjpjP5whUaTknim5CiGdAiKZcgWhmbmxjzBRXDWqUc/k67bz2OP+03DdcX6/SN/CDSAi/NeUwM5o2gjHJoA==
+
 tapable@^2.1.1, tapable@^2.2.0, tapable@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.2.1.tgz#1967a73ef4060a82f12ab96af86d52fdb76eeca0"
