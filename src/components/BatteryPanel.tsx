@@ -8,8 +8,43 @@ import {
   MdBattery80,
   MdBattery90,
   MdBatteryFull,
+  MdBatteryCharging20,
+  MdBatteryCharging30,
+  MdBatteryCharging50,
+  MdBatteryCharging60,
+  MdBatteryCharging80,
+  MdBatteryCharging90,
+  MdBatteryChargingFull,
 } from "react-icons/md";
 import { IconType } from "react-icons";
+
+type BatteryIconLevel = 20 | 30 | 50 | 60 | 80 | 90 | 100;
+
+const getBatteryIcon = (
+  level: BatteryIconLevel,
+  charging: boolean
+): IconType => {
+  const iconSet: [IconType, IconType] = (() => {
+    switch (level) {
+      case 100:
+        return [MdBatteryFull, MdBatteryChargingFull];
+      case 90:
+        return [MdBattery90, MdBatteryCharging90];
+      case 80:
+        return [MdBattery80, MdBatteryCharging80];
+      case 60:
+        return [MdBattery60, MdBatteryCharging60];
+      case 50:
+        return [MdBattery50, MdBatteryCharging50];
+      case 30:
+        return [MdBattery30, MdBatteryCharging30];
+      case 20:
+        return [MdBattery20, MdBatteryCharging20];
+    }
+  })();
+
+  return iconSet[Number(charging)];
+};
 
 export type BatteryPanelProps = {
   //
@@ -63,27 +98,27 @@ class BatteryPanel extends React.Component<
 
   setBatteryState(battery: BatteryManager) {
     const percentage = Math.trunc(battery.level * 100);
-    const icon = (() => {
+    const batteryIconLevel: BatteryIconLevel = (() => {
       switch (true) {
         case percentage > 100:
-          return MdBatteryFull;
+          return 100;
         case percentage > 80:
-          return MdBattery90;
+          return 90;
         case percentage > 70:
-          return MdBattery80;
+          return 80;
         case percentage > 50:
-          return MdBattery60;
+          return 60;
         case percentage > 40:
-          return MdBattery50;
+          return 50;
         case percentage > 20:
-          return MdBattery30;
+          return 30;
         default:
-          return MdBattery20;
+          return 20;
       }
     })();
 
     this.setState({
-      icon,
+      icon: getBatteryIcon(batteryIconLevel, battery.charging),
       percentageText: percentage.toString(),
     });
   }
