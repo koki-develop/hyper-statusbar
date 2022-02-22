@@ -17,6 +17,7 @@ import {
   MdBatteryChargingFull,
 } from "react-icons/md";
 import { IconType } from "react-icons";
+import Panel from "./Panel";
 
 type BatteryIconLevel = 20 | 30 | 50 | 60 | 80 | 90 | 100;
 
@@ -127,15 +128,9 @@ class BatteryPanel extends React.Component<
 
   render() {
     return (
-      <div
-        style={{
-          alignItems: "center",
-          display: "flex",
-          padding: "0px 16px",
-        }}
-      >
+      <Panel>
         {React.createElement(this.state.icon)} {this.state.percentageText}%
-      </div>
+      </Panel>
     );
   }
 }
