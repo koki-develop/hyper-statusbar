@@ -34,7 +34,9 @@ class ClockPanel extends React.Component<ClockPanelProps, ClockPanelState> {
   }
 
   render() {
-    return <Panel icon={BsClock}>{format(this.state.now, "HH:mm:ss")}</Panel>;
+    return (
+      <Panel icon={BsClock}>{format(this.state.now, "M/d HH:mm:ss")}</Panel>
+    );
   }
 }
 
