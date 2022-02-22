@@ -1,7 +1,7 @@
-import React from "react";
-import { AiOutlineUser } from "react-icons/ai";
-import os from "os";
-import Panel from "./Panel";
+import os from 'os';
+import React from 'react';
+import { AiOutlineUser } from 'react-icons/ai';
+import Panel from './Panel';
 
 export type UserPanelProps = {
   //

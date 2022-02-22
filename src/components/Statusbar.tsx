@@ -1,14 +1,14 @@
-import React from "react";
-import BatteryPanel from "./BatteryPanel";
-import ClockPanel from "./ClockPanel";
-import IpPanel from "./IpPanel";
-import UserPanel from "./UserPanel";
+import React from 'react';
+import BatteryPanel from './BatteryPanel';
+import ClockPanel from './ClockPanel';
+import IpPanel from './IpPanel';
+import UserPanel from './UserPanel';
 
 export const PanelName = {
-  battery: "battery",
-  clock: "clock",
-  user: "user",
-  ip: "ip",
+  battery: 'battery',
+  clock: 'clock',
+  user: 'user',
+  ip: 'ip',
 } as const;
 
 export type PanelName = typeof PanelName[keyof typeof PanelName];
@@ -46,15 +46,15 @@ class Statusbar extends React.Component<StatusbarProps, StatusbarState> {
       <footer
         {...divProps}
         style={{
-          backgroundColor: "black",
-          borderTopStyle: "solid",
+          backgroundColor: 'black',
+          borderTopStyle: 'solid',
           borderTopWidth: 1,
           bottom: 0,
-          color: "white",
-          display: "flex",
+          color: 'white',
+          display: 'flex',
           height: 40,
-          position: "absolute",
-          width: "100%",
+          position: 'absolute',
+          width: '100%',
           ...divProps.style,
         }}
       >

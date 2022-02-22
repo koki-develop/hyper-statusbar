@@ -1,13 +1,13 @@
-const path = require("path");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const path = require('path');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
-  target: "node",
-  entry: "./src/index.js",
+  target: 'node',
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, "./dist"),
-    filename: "index.js",
-    libraryTarget: "commonjs",
+    path: path.resolve(__dirname, './dist'),
+    filename: 'index.js',
+    libraryTarget: 'commonjs',
   },
   plugins: [new ForkTsCheckerWebpackPlugin()],
   module: {
@@ -16,13 +16,13 @@ module.exports = {
         test: /\.tsx?$/,
         use: [
           {
-            loader: "babel-loader",
+            loader: 'babel-loader',
           },
         ],
       },
     ],
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: ['.ts', '.tsx', '.js'],
   },
 };

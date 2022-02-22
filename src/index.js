@@ -1,10 +1,10 @@
-import Statusbar from "./components/Statusbar";
+import Statusbar from './components/Statusbar';
 
 exports.reduceUI = (state, { type, config }) => {
   switch (type) {
-    case "CONFIG_LOAD":
-    case "CONFIG_RELOAD":
-      return state.set("statusbar", config.statusbar);
+    case 'CONFIG_LOAD':
+    case 'CONFIG_RELOAD':
+      return state.set('statusbar', config.statusbar);
   }
 
   return state;
@@ -14,7 +14,7 @@ exports.decorateConfig = (config) => {
   return {
     ...config,
     css: `
-      ${config.css ?? ""}
+      ${config.css ?? ''}
       .terms_terms {
         margin-bottom: 40px;
       }
@@ -46,9 +46,9 @@ exports.decorateHyper = (Hyper, { React }) =>
         ...hyperProps,
         customInnerChildren: existingChildren.concat(
           React.createElement(Statusbar, {
-            style: { borderColor: hyperProps.borderColor ?? "#333" },
+            style: { borderColor: hyperProps.borderColor ?? '#333' },
             panels: statusbar?.panels,
-          })
+          }),
         ),
       });
     }

@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import { IconType } from 'react-icons';
 import {
   MdBatteryUnknown,
   MdBattery20,
@@ -15,15 +16,14 @@ import {
   MdBatteryCharging80,
   MdBatteryCharging90,
   MdBatteryChargingFull,
-} from "react-icons/md";
-import { IconType } from "react-icons";
-import Panel from "./Panel";
+} from 'react-icons/md';
+import Panel from './Panel';
 
 type BatteryIconLevel = 20 | 30 | 50 | 60 | 80 | 90 | 100;
 
 const getBatteryIcon = (
   level: BatteryIconLevel,
-  charging: boolean
+  charging: boolean,
 ): IconType => {
   const iconSet: [IconType, IconType] = (() => {
     switch (level) {
@@ -57,10 +57,10 @@ export type BatteryPanelState = {
 };
 
 const batteryEvents: (keyof BatteryManagerEventTargetEventMap)[] = [
-  "chargingchange",
-  "chargingtimechange",
-  "dischargingtimechange",
-  "levelchange",
+  'chargingchange',
+  'chargingtimechange',
+  'dischargingtimechange',
+  'levelchange',
 ];
 
 class BatteryPanel extends React.Component<
@@ -71,7 +71,7 @@ class BatteryPanel extends React.Component<
     super(props);
     this.state = {
       icon: MdBatteryUnknown,
-      percentageText: "??",
+      percentageText: '??',
     };
 
     this.handleBatteryEvent = this.handleBatteryEvent.bind(this);

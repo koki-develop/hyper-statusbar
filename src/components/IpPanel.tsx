@@ -1,7 +1,7 @@
-import React from "react";
-import { MdWifiTethering, MdWifiTetheringOff } from "react-icons/md";
-import publicIp from "public-ip";
-import Panel from "./Panel";
+import publicIp from 'public-ip';
+import React from 'react';
+import { MdWifiTethering, MdWifiTetheringOff } from 'react-icons/md';
+import Panel from './Panel';
 
 export type IpPanelProps = {
   //
@@ -50,7 +50,7 @@ class IpPanel extends React.Component<IpPanelProps, IpPanelState> {
   render() {
     return (
       <Panel icon={this.state.online ? MdWifiTethering : MdWifiTetheringOff}>
-        {this.state.online ? this.state.ip ?? "?.?.?.?" : "(offline)"}
+        {this.state.online ? this.state.ip ?? '?.?.?.?' : '(offline)'}
       </Panel>
     );
   }

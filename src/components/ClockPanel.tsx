@@ -1,7 +1,7 @@
-import React from "react";
-import { BsClock } from "react-icons/bs";
-import { format } from "date-fns";
-import Panel from "./Panel";
+import { format } from 'date-fns';
+import React from 'react';
+import { BsClock } from 'react-icons/bs';
+import Panel from './Panel';
 
 export type ClockPanelProps = {
   //
@@ -35,7 +35,7 @@ class ClockPanel extends React.Component<ClockPanelProps, ClockPanelState> {
 
   render() {
     return (
-      <Panel icon={BsClock}>{format(this.state.now, "M/d HH:mm:ss")}</Panel>
+      <Panel icon={BsClock}>{format(this.state.now, 'M/d HH:mm:ss')}</Panel>
     );
   }
 }
