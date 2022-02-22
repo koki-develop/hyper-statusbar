@@ -1,10 +1,10 @@
-import Statusline from "./components/Statusline";
+import Statusbar from "./components/Statusbar";
 
 exports.reduceUI = (state, { type, config }) => {
   switch (type) {
     case "CONFIG_LOAD":
     case "CONFIG_RELOAD":
-      return state.set("statusline", config.statusline);
+      return state.set("statusbar", config.statusbar);
   }
 
   return state;
@@ -22,10 +22,10 @@ exports.decorateConfig = (config) => {
   };
 };
 
-exports.mapHyperState = ({ ui: { statusline } }, map) => {
+exports.mapHyperState = ({ ui: { statusbar } }, map) => {
   return {
     ...map,
-    statusline,
+    statusbar,
   };
 };
 
@@ -40,14 +40,14 @@ exports.decorateHyper = (Hyper, { React }) =>
       const existingChildren =
         customChildren instanceof Array ? customChildren : [customChildren];
 
-      const { statusline, ...hyperProps } = this.props;
+      const { statusbar, ...hyperProps } = this.props;
 
       return React.createElement(Hyper, {
         ...hyperProps,
         customInnerChildren: existingChildren.concat(
-          React.createElement(Statusline, {
+          React.createElement(Statusbar, {
             style: { borderColor: hyperProps.borderColor ?? "#333" },
-            panels: statusline?.panels,
+            panels: statusbar?.panels,
           })
         ),
       });

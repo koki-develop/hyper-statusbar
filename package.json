@@ -1,5 +1,5 @@
 {
-  "name": "hyper-statusline",
+  "name": "hyper-statusbar",
   "version": "local",
   "main": "dist/index.js",
   "license": "MIT",

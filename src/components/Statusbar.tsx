@@ -11,16 +11,16 @@ export const PanelName = {
 
 export type PanelName = typeof PanelName[keyof typeof PanelName];
 
-export type StatuslineProps = React.HTMLProps<HTMLDivElement> & {
+export type StatusbarProps = React.HTMLProps<HTMLDivElement> & {
   panels?: PanelName[];
 };
 
-export type StatuslineState = {
+export type StatusbarState = {
   //
 };
 
-class Statusline extends React.Component<StatuslineProps, StatuslineState> {
-  constructor(props: StatuslineProps) {
+class Statusbar extends React.Component<StatusbarProps, StatusbarState> {
+  constructor(props: StatusbarProps) {
     super(props);
     this.state = {};
   }
@@ -60,4 +60,4 @@ class Statusline extends React.Component<StatuslineProps, StatuslineState> {
   }
 }
 
-export default Statusline;
+export default Statusbar;
