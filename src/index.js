@@ -1,5 +1,17 @@
 import Statusline from "./components/Statusline";
 
+exports.decorateConfig = (config) => {
+  return {
+    ...config,
+    css: `
+      ${config.css ?? ""}
+      .terms_terms {
+        margin-bottom: 40px;
+      }
+    `,
+  };
+};
+
 exports.decorateHyper = (Hyper, { React }) =>
   class extends React.Component {
     constructor(props) {
