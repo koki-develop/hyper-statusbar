@@ -11,15 +11,13 @@ exports.decorateHyper = (Hyper, { React }) =>
       const existingChildren =
         customChildren instanceof Array ? customChildren : [customChildren];
 
-      return React.createElement(
-        Hyper,
-        Object.assign({}, this.props, {
-          customInnerChildren: existingChildren.concat(
-            React.createElement(Statusline, {
-              style: { borderColor: this.props.borderColor ?? "#333" },
-            })
-          ),
-        })
-      );
+      return React.createElement(Hyper, {
+        ...this.props,
+        customInnerChildren: existingChildren.concat(
+          React.createElement(Statusline, {
+            style: { borderColor: this.props.borderColor ?? "#333" },
+          })
+        ),
+      });
     }
   };
