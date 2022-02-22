@@ -72,6 +72,8 @@ class BatteryPanel extends React.Component<
       icon: MdBatteryUnknown,
       percentageText: "??",
     };
+
+    this.handleBatteryEvent = this.handleBatteryEvent.bind(this);
   }
 
   componentDidMount() {
