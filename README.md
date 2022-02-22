@@ -1,5 +1,7 @@
 [![Build](https://github.com/koki-develop/hyper-statusbar/actions/workflows/build.yml/badge.svg)](https://github.com/koki-develop/hyper-statusbar/actions/workflows/build.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/102c7b915d94f1a99e20/maintainability)](https://codeclimate.com/github/koki-develop/hyper-statusbar/maintainability)
+[![LICENSE](https://img.shields.io/github/license/koki-develop/hyper-statusbar?style=plastic)](./LICENSE)
+[![Twitter Follow](https://img.shields.io/twitter/follow/koki_develop?style=social)](https://twitter.com/koki_develop)
 
 # Hyper Statusbar
 
