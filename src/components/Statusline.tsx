@@ -3,7 +3,17 @@ import BatteryPanel from "./BatteryPanel";
 import ClockPanel from "./ClockPanel";
 import UserPanel from "./UserPanel";
 
-export type StatuslineProps = React.HTMLProps<HTMLDivElement>;
+export const PanelName = {
+  battery: "battery",
+  clock: "clock",
+  user: "user",
+} as const;
+
+export type PanelName = typeof PanelName[keyof typeof PanelName];
+
+export type StatuslineProps = React.HTMLProps<HTMLDivElement> & {
+  panels?: PanelName[];
+};
 
 export type StatuslineState = {
   //
@@ -16,9 +26,21 @@ class Statusline extends React.Component<StatuslineProps, StatuslineState> {
   }
 
   render() {
+    const { panels = [], ...divProps } = this.props;
+    const panelComponents: React.ReactNode[] = panels.map((panel) => {
+      switch (panel) {
+        case PanelName.battery:
+          return <BatteryPanel />;
+        case PanelName.clock:
+          return <ClockPanel />;
+        case PanelName.user:
+          return <UserPanel />;
+      }
+    });
+
     return (
       <footer
-        {...this.props}
+        {...divProps}
         style={{
           backgroundColor: "black",
           borderTopStyle: "solid",
@@ -29,12 +51,10 @@ class Statusline extends React.Component<StatuslineProps, StatuslineState> {
           height: 40,
           position: "absolute",
           width: "100%",
-          ...this.props.style,
+          ...divProps.style,
         }}
       >
-        <BatteryPanel />
-        <ClockPanel />
-        <UserPanel />
+        {panelComponents}
       </footer>
     );
   }

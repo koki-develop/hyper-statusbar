@@ -1,5 +1,15 @@
 import Statusline from "./components/Statusline";
 
+exports.reduceUI = (state, { type, config }) => {
+  switch (type) {
+    case "CONFIG_LOAD":
+    case "CONFIG_RELOAD":
+      return state.set("statusline", config.statusline);
+  }
+
+  return state;
+};
+
 exports.decorateConfig = (config) => {
   return {
     ...config,
@@ -30,11 +40,14 @@ exports.decorateHyper = (Hyper, { React }) =>
       const existingChildren =
         customChildren instanceof Array ? customChildren : [customChildren];
 
+      const { statusline, ...hyperProps } = this.props;
+
       return React.createElement(Hyper, {
-        ...this.props,
+        ...hyperProps,
         customInnerChildren: existingChildren.concat(
           React.createElement(Statusline, {
-            style: { borderColor: this.props.borderColor ?? "#333" },
+            style: { borderColor: hyperProps.borderColor ?? "#333" },
+            panels: statusline?.panels,
           })
         ),
       });
