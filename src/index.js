@@ -31,6 +31,8 @@ exports.mapHyperState = ({ ui: { statusbar } }, map) => {
 
 exports.decorateHyper = (Hyper, { React }) =>
   class extends React.Component {
+    static displayName = 'Hyper';
+
     constructor(props) {
       super(props);
     }
