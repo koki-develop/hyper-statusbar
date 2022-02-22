@@ -12,6 +12,13 @@ exports.decorateConfig = (config) => {
   };
 };
 
+exports.mapHyperState = ({ ui: { statusline } }, map) => {
+  return {
+    ...map,
+    statusline,
+  };
+};
+
 exports.decorateHyper = (Hyper, { React }) =>
   class extends React.Component {
     constructor(props) {
