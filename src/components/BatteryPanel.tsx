@@ -55,7 +55,7 @@ class BatteryPanel extends React.Component<
   }
 
   render() {
-    return <h1>percentage: {this.state.percentage}</h1>;
+    return <div>percentage: {this.state.percentage}</div>;
   }
 }
 

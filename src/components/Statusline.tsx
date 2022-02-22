@@ -20,6 +20,9 @@ class Statusline extends React.Component<StatuslineProps, StatuslineState> {
       <footer
         style={{
           backgroundColor: "lightgray",
+          bottom: 0,
+          color: "black",
+          position: "absolute",
           width: "100%",
         }}
       >
