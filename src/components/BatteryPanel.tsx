@@ -103,7 +103,7 @@ class BatteryPanel extends React.Component<
     const percentage = Math.trunc(battery.level * 100);
     const batteryIconLevel: BatteryIconLevel = (() => {
       switch (true) {
-        case percentage > 100:
+        case percentage > 90:
           return 100;
         case percentage > 80:
           return 90;
