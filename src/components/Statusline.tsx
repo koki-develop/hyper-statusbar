@@ -1,6 +1,7 @@
 import React from "react";
 import BatteryPanel from "./BatteryPanel";
 import ClockPanel from "./ClockPanel";
+import UserPanel from "./UserPanel";
 
 export type StatuslineProps = {
   //
@@ -30,6 +31,7 @@ class Statusline extends React.Component<StatuslineProps, StatuslineState> {
       >
         <BatteryPanel />
         <ClockPanel />
+        <UserPanel />
       </footer>
     );
   }
