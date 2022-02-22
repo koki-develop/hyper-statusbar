@@ -26,6 +26,7 @@ class Statusline extends React.Component<StatuslineProps, StatuslineState> {
           bottom: 0,
           color: "white",
           display: "flex",
+          height: 40,
           position: "absolute",
           width: "100%",
           ...this.props.style,
