@@ -22,7 +22,7 @@ class Panel extends React.Component<PanelProps, PanelState> {
         style={{
           alignItems: "center",
           display: "flex",
-          padding: "0px 16px",
+          padding: "0px 8px",
         }}
       >
         {React.createElement(this.props.icon, { style: { marginRight: 4 } })}
