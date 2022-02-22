@@ -29,7 +29,7 @@ class Statusbar extends React.Component<StatusbarProps, StatusbarState> {
 
   render() {
     const { panels = [], ...divProps } = this.props;
-    const panelComponents: React.ReactNode[] = panels.map((panel) => {
+    const panelComponents: React.ReactNode[] = panels.map(panel => {
       switch (panel) {
         case PanelName.battery:
           return <BatteryPanel />;

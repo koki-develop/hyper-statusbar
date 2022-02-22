@@ -78,7 +78,7 @@ class BatteryPanel extends React.Component<
   }
 
   componentDidMount() {
-    navigator.getBattery().then((battery) => {
+    navigator.getBattery().then(battery => {
       this.setBatteryState(battery);
       for (const event of batteryEvents) {
         battery.addEventListener(event, this.handleBatteryEvent);
@@ -87,7 +87,7 @@ class BatteryPanel extends React.Component<
   }
 
   componentWillUnmount() {
-    navigator.getBattery().then((battery) => {
+    navigator.getBattery().then(battery => {
       for (const event of batteryEvents) {
         battery.removeEventListener(event, this.handleBatteryEvent);
       }

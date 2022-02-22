@@ -33,10 +33,10 @@ class IpPanel extends React.Component<IpPanelProps, IpPanelState> {
 
       publicIp
         .v4()
-        .then((ip) => {
+        .then(ip => {
           this.setState({ ip, online: navigator.onLine });
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
           this.setState({ ip: null, online: navigator.onLine });
         });

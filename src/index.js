@@ -10,7 +10,7 @@ exports.reduceUI = (state, { type, config }) => {
   return state;
 };
 
-exports.decorateConfig = (config) => {
+exports.decorateConfig = config => {
   return {
     ...config,
     css: `
