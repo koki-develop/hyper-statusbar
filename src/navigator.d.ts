@@ -17,16 +17,16 @@ interface BatteryManagerEventTargetEventMap {
 }
 
 interface BatteryManagerEventTarget extends EventTarget {
-  onchargingchange: (this: BatteryManager, ev: Event) => any;
-  onlevelchange: (this: BatteryManager, ev: Event) => any;
-  onchargingtimechange: (this: BatteryManager, ev: Event) => any;
-  ondischargingtimechange: (this: BatteryManager, ev: Event) => any;
+  onchargingchange: (this: BatteryManager, ev: Event) => void;
+  onlevelchange: (this: BatteryManager, ev: Event) => void;
+  onchargingtimechange: (this: BatteryManager, ev: Event) => void;
+  ondischargingtimechange: (this: BatteryManager, ev: Event) => void;
   addEventListener<K extends keyof BatteryManagerEventTargetEventMap>(
     type: K,
     listener: (
       this: BatteryManager,
-      ev: BatteryManagerEventTargetEventMap[K]
-    ) => any,
-    useCapture?: boolean
+      ev: BatteryManagerEventTargetEventMap[K],
+    ) => void,
+    useCapture?: boolean,
   ): void;
 }
