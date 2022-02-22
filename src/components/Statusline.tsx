@@ -1,15 +1,32 @@
 import React from "react";
+import BatteryPanel from "./BatteryPanel";
 
 export type StatuslineProps = {
   //
 };
 
-const Statusline: React.VFC<StatuslineProps> = React.memo((props) => {
-  console.log("hello from Statusline");
+export type StatuslineState = {
+  //
+};
 
-  return null;
-});
+class Statusline extends React.Component<StatuslineProps, StatuslineState> {
+  constructor(props: StatuslineProps) {
+    super(props);
+    this.state = {};
+  }
 
-Statusline.displayName = "Statusline";
+  render() {
+    return (
+      <footer
+        style={{
+          backgroundColor: "lightgray",
+          width: "100%",
+        }}
+      >
+        <BatteryPanel />
+      </footer>
+    );
+  }
+}
 
 export default Statusline;
