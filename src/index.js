@@ -15,7 +15,9 @@ exports.decorateHyper = (Hyper, { React }) =>
         Hyper,
         Object.assign({}, this.props, {
           customInnerChildren: existingChildren.concat(
-            React.createElement(Statusline, {})
+            React.createElement(Statusline, {
+              style: { borderColor: this.props.borderColor ?? "#333" },
+            })
           ),
         })
       );
