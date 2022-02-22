@@ -2,6 +2,7 @@ const path = require("path");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 module.exports = {
+  target: "node",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "./dist"),
