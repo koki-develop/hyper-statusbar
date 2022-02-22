@@ -1,5 +1,6 @@
 import React from "react";
 import BatteryPanel from "./BatteryPanel";
+import CpuPanel from "./CpuPanel";
 
 export type StatuslineProps = {
   //
@@ -22,11 +23,13 @@ class Statusline extends React.Component<StatuslineProps, StatuslineState> {
           backgroundColor: "black",
           bottom: 0,
           color: "white",
+          display: "flex",
           position: "absolute",
           width: "100%",
         }}
       >
         <BatteryPanel />
+        <CpuPanel />
       </footer>
     );
   }
