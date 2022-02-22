@@ -3,6 +3,7 @@ module.exports = {
     react: {
       version: 'detect',
     },
+    'import/resolver': 'webpack',
   },
   env: {
     es2021: true,
