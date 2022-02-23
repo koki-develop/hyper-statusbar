@@ -1,4 +1,4 @@
-import Statusbar from './components/Statusbar';
+import Statusbar from '@/components/Statusbar';
 
 exports.reduceUI = (state, { type, config }) => {
   switch (type) {

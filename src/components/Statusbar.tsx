@@ -1,5 +1,5 @@
 import React from 'react';
-import { getPanels } from './panels';
+import { getPanels } from '@/components/panels';
 
 export const PanelName = {
   battery: 'battery',
