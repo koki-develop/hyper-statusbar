@@ -44,14 +44,16 @@ exports.decorateHyper = (Hyper, { React }) =>
 
       const { statusbar, ...hyperProps } = this.props;
 
-      return React.createElement(Hyper, {
-        ...hyperProps,
-        customInnerChildren: existingChildren.concat(
-          React.createElement(Statusbar, {
-            style: { borderColor: hyperProps.borderColor ?? '#333' },
-            panels: statusbar?.panels,
-          }),
-        ),
-      });
+      return (
+        <Hyper
+          {...hyperProps}
+          customInnerChildren={existingChildren.concat(
+            <Statusbar
+              style={{ borderColor: hyperProps.borderColor ?? '#333' }}
+              panels={statusbar?.panels}
+            />,
+          )}
+        />
+      );
     }
   };
