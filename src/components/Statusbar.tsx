@@ -1,8 +1,8 @@
 import React from 'react';
-import BatteryPanel from './BatteryPanel';
-import ClockPanel from './ClockPanel';
-import IpPanel from './IpPanel';
-import UserPanel from './UserPanel';
+import BatteryPanel from './panels/BatteryPanel';
+import ClockPanel from './panels/ClockPanel';
+import IpPanel from './panels/IpPanel';
+import UserPanel from './panels/UserPanel';
 
 export const PanelName = {
   battery: 'battery',
