@@ -8,7 +8,7 @@ export type IpPanelProps = {
 };
 
 export type IpPanelState = {
-  ip: string | null;
+  ip: string;
   online: boolean;
 };
 
@@ -18,7 +18,7 @@ class IpPanel extends React.Component<IpPanelProps, IpPanelState> {
   constructor(props: IpPanelProps) {
     super(props);
     this.state = {
-      ip: null,
+      ip: '?.?.?.?',
       online: navigator.onLine,
     };
   }
@@ -27,18 +27,18 @@ class IpPanel extends React.Component<IpPanelProps, IpPanelState> {
     this._intervalId = window.setInterval(() => {
       const online = navigator.onLine;
       if (!online) {
-        this.setState({ ip: null, online });
+        this.setState({ ip: '(offline)', online });
         return;
       }
 
       publicIp
         .v4()
         .then(ip => {
-          this.setState({ ip, online: navigator.onLine });
+          this.setState({ ip, online });
         })
         .catch(err => {
           console.error(err);
-          this.setState({ ip: null, online: navigator.onLine });
+          this.setState({ ip: '(failed)', online });
         });
     }, 5000);
   }
@@ -50,7 +50,7 @@ class IpPanel extends React.Component<IpPanelProps, IpPanelState> {
   render() {
     return (
       <Panel icon={this.state.online ? MdWifiTethering : MdWifiTetheringOff}>
-        {this.state.online ? this.state.ip ?? '?.?.?.?' : '(offline)'}
+        {this.state.ip}
       </Panel>
     );
   }
