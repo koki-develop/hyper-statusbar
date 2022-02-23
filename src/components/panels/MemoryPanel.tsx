@@ -41,7 +41,7 @@ class MemoryPanel extends React.Component<MemoryPanelProps, MemoryPanelState> {
   render() {
     return (
       <Panel icon={MdMemory}>
-        {this.state.usageMbText}MB/{this.state.totalMbText}MB
+        {this.state.usageMbText}MB / {this.state.totalMbText}MB
       </Panel>
     );
   }
