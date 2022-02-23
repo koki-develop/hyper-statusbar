@@ -37,7 +37,7 @@ You can specify which panel to display in the `config.statusbar.panels` in `~/.h
 // ~/.hyper.js
 config: {
   statusbar: {
-    panels: ["battery", "user", "ip", "clock"],
+    panels: ["battery", "user", "cpu", "memory", "ip", "clock"],
   },
 }
 ```
