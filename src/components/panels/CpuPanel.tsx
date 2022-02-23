@@ -1,7 +1,7 @@
 import osu from 'node-os-utils';
 import React from 'react';
 import { BsCpu } from 'react-icons/bs';
-import Panel from './Panel';
+import Panel from '.';
 
 export type CpuPanelProps = {
   //
@@ -12,6 +12,7 @@ export type CpuPanelState = {
 };
 
 class CpuPanel extends React.Component<CpuPanelProps, CpuPanelState> {
+  static panelName = 'cpu';
   private _intervalId?: number;
 
   constructor(props: CpuPanelProps) {

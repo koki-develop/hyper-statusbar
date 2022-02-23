@@ -1,7 +1,7 @@
 import publicIp from 'public-ip';
 import React from 'react';
 import { MdWifiTethering, MdWifiTetheringOff } from 'react-icons/md';
-import Panel from './Panel';
+import Panel from '.';
 
 export type IpPanelProps = {
   //
@@ -13,6 +13,7 @@ export type IpPanelState = {
 };
 
 class IpPanel extends React.Component<IpPanelProps, IpPanelState> {
+  static panelName = 'ip';
   private _intervalId?: number;
 
   constructor(props: IpPanelProps) {

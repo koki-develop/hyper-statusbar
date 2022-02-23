@@ -1,7 +1,7 @@
 import osu from 'node-os-utils';
 import React from 'react';
 import { MdMemory } from 'react-icons/md';
-import Panel from './Panel';
+import Panel from '.';
 
 export type MemoryPanelProps = {
   //
@@ -13,6 +13,7 @@ export type MemoryPanelState = {
 };
 
 class MemoryPanel extends React.Component<MemoryPanelProps, MemoryPanelState> {
+  static panelName = 'memory';
   private _intervalId?: number;
 
   constructor(props: MemoryPanelProps) {

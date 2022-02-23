@@ -1,10 +1,5 @@
 import React from 'react';
-import BatteryPanel from './panels/BatteryPanel';
-import ClockPanel from './panels/ClockPanel';
-import CpuPanel from './panels/CpuPanel';
-import IpPanel from './panels/IpPanel';
-import MemoryPanel from './panels/MemoryPanel';
-import UserPanel from './panels/UserPanel';
+import { getPanels } from './panels';
 
 export const PanelName = {
   battery: 'battery',
@@ -33,22 +28,7 @@ class Statusbar extends React.Component<StatusbarProps, StatusbarState> {
 
   render() {
     const { panels = [], ...divProps } = this.props;
-    const panelComponents: React.ReactNode[] = panels.map(panel => {
-      switch (panel) {
-        case PanelName.battery:
-          return <BatteryPanel />;
-        case PanelName.clock:
-          return <ClockPanel />;
-        case PanelName.cpu:
-          return <CpuPanel />;
-        case PanelName.ip:
-          return <IpPanel />;
-        case PanelName.memory:
-          return <MemoryPanel />;
-        case PanelName.user:
-          return <UserPanel />;
-      }
-    });
+    const panelComponents = getPanels(panels);
 
     return (
       <footer

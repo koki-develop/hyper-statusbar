@@ -17,7 +17,7 @@ import {
   MdBatteryCharging90,
   MdBatteryChargingFull,
 } from 'react-icons/md';
-import Panel from './Panel';
+import Panel from '.';
 
 type BatteryIconLevel = 20 | 30 | 50 | 60 | 80 | 90 | 100;
 
@@ -67,6 +67,8 @@ class BatteryPanel extends React.Component<
   BatteryPanelProps,
   BatteryPanelState
 > {
+  static panelName = 'battery';
+
   constructor(props: BatteryPanelProps) {
     super(props);
     this.state = {

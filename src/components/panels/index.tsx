@@ -1,5 +1,33 @@
 import React from 'react';
 import { IconType } from 'react-icons';
+import BatteryPanel from './BatteryPanel';
+import ClockPanel from './ClockPanel';
+import CpuPanel from './CpuPanel';
+import IpPanel from './IpPanel';
+import MemoryPanel from './MemoryPanel';
+import UserPanel from './UserPanel';
+
+const allPanels = [
+  BatteryPanel,
+  ClockPanel,
+  CpuPanel,
+  IpPanel,
+  MemoryPanel,
+  UserPanel,
+];
+
+export const getPanels = (names: string[]) => {
+  const panels: React.ReactNode[] = [];
+
+  for (const name of names) {
+    const panel = allPanels.find(panel => panel.panelName === name);
+    if (panel) {
+      panels.push(React.createElement(panel));
+    }
+  }
+
+  return panels;
+};
 
 export type PanelProps = {
   children: React.ReactNode;

@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 import React from 'react';
 import { BsClock } from 'react-icons/bs';
-import Panel from './Panel';
+import Panel from '.';
 
 export type ClockPanelProps = {
   //
@@ -12,6 +12,7 @@ export type ClockPanelState = {
 };
 
 class ClockPanel extends React.Component<ClockPanelProps, ClockPanelState> {
+  static panelName = 'clock';
   private _intervalId?: number;
 
   constructor(props: ClockPanelProps) {
