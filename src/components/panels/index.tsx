@@ -51,6 +51,7 @@ class Panel extends React.Component<PanelProps, PanelState> {
           alignItems: 'center',
           display: 'flex',
           padding: '0px 8px',
+          whiteSpace: 'nowrap',
           width: '100%',
         }}
       >
