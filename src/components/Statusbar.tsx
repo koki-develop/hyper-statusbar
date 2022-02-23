@@ -3,6 +3,7 @@ import BatteryPanel from './panels/BatteryPanel';
 import ClockPanel from './panels/ClockPanel';
 import CpuPanel from './panels/CpuPanel';
 import IpPanel from './panels/IpPanel';
+import MemoryPanel from './panels/MemoryPanel';
 import UserPanel from './panels/UserPanel';
 
 export const PanelName = {
@@ -10,6 +11,7 @@ export const PanelName = {
   clock: 'clock',
   cpu: 'cpu',
   ip: 'ip',
+  memory: 'memory',
   user: 'user',
 } as const;
 
@@ -41,6 +43,8 @@ class Statusbar extends React.Component<StatusbarProps, StatusbarState> {
           return <CpuPanel />;
         case PanelName.ip:
           return <IpPanel />;
+        case PanelName.memory:
+          return <MemoryPanel />;
         case PanelName.user:
           return <UserPanel />;
       }
