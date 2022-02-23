@@ -5,7 +5,7 @@
 
 # Hyper Statusbar
 
-Hyper Statusbar is a plugin for Hyper that displays a status bar.
+Hyper Statusbar is a plugin for [Hyper](https://hyper.is/) that displays a status bar.
 
 ![screenshot](./README/screenshot.png)
 
