@@ -1,14 +1,16 @@
 import React from 'react';
 import BatteryPanel from './panels/BatteryPanel';
 import ClockPanel from './panels/ClockPanel';
+import CpuPanel from './panels/CpuPanel';
 import IpPanel from './panels/IpPanel';
 import UserPanel from './panels/UserPanel';
 
 export const PanelName = {
   battery: 'battery',
   clock: 'clock',
-  user: 'user',
+  cpu: 'cpu',
   ip: 'ip',
+  user: 'user',
 } as const;
 
 export type PanelName = typeof PanelName[keyof typeof PanelName];
@@ -35,10 +37,12 @@ class Statusbar extends React.Component<StatusbarProps, StatusbarState> {
           return <BatteryPanel />;
         case PanelName.clock:
           return <ClockPanel />;
-        case PanelName.user:
-          return <UserPanel />;
+        case PanelName.cpu:
+          return <CpuPanel />;
         case PanelName.ip:
           return <IpPanel />;
+        case PanelName.user:
+          return <UserPanel />;
       }
     });
 
