@@ -26,7 +26,7 @@ class CpuPanel extends React.Component<CpuPanelProps, CpuPanelState> {
       osu.cpu
         .usage()
         .then(percentage => {
-          this.setState({ percentageText: percentage.toString() });
+          this.setState({ percentageText: Math.trunc(percentage).toString() });
         })
         .catch(err => {
           console.error(err);
