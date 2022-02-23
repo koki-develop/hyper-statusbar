@@ -47,6 +47,7 @@ class Panel extends React.Component<PanelProps, PanelState> {
   render() {
     return (
       <div
+        className='statusbar-panel'
         style={{
           alignItems: 'center',
           display: 'flex',

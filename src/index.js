@@ -15,6 +15,9 @@ exports.decorateConfig = config => {
     ...config,
     css: `
       ${config.css ?? ''}
+      .statusbar-panel:not(:last-child) {
+        border-right: 1px solid ${config.borderColor ?? '#333'};
+      }
       .terms_terms {
         margin-bottom: 40px;
       }
