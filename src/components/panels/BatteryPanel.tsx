@@ -17,6 +17,7 @@ import {
   MdBatteryCharging90,
   MdBatteryChargingFull,
 } from 'react-icons/md';
+import { getBattery } from '@/lib/battery';
 import Panel from '.';
 
 type BatteryIconLevel = 20 | 30 | 50 | 60 | 80 | 90 | 100;
@@ -80,7 +81,7 @@ class BatteryPanel extends React.Component<
   }
 
   componentDidMount() {
-    navigator.getBattery().then(battery => {
+    getBattery().then(battery => {
       this._setBatteryState(battery);
       for (const event of batteryEvents) {
         battery.addEventListener(event, this._handleBatteryEvent);
@@ -89,7 +90,7 @@ class BatteryPanel extends React.Component<
   }
 
   componentWillUnmount() {
-    navigator.getBattery().then(battery => {
+    getBattery().then(battery => {
       for (const event of batteryEvents) {
         battery.removeEventListener(event, this._handleBatteryEvent);
       }
