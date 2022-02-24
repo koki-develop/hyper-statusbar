@@ -1,6 +1,7 @@
 import os from 'os';
 import React from 'react';
 import { AiOutlineUser } from 'react-icons/ai';
+import { loadUser, User } from '@/lib/user';
 import Panel from '.';
 
 export type UserPanelProps = {
@@ -8,7 +9,7 @@ export type UserPanelProps = {
 };
 
 export type UserPanelState = {
-  //
+  user: User;
 };
 
 class UserPanel extends React.Component<UserPanelProps, UserPanelState> {
@@ -16,7 +17,9 @@ class UserPanel extends React.Component<UserPanelProps, UserPanelState> {
 
   constructor(props: UserPanelProps) {
     super(props);
-    this.state = {};
+    this.state = {
+      user: loadUser(),
+    };
   }
 
   render() {
