@@ -1,6 +1,6 @@
-import osu from 'node-os-utils';
 import React from 'react';
 import { BsCpu } from 'react-icons/bs';
+import { loadCpuUsage } from '@/lib/cpu';
 import Panel from '.';
 
 export type CpuPanelProps = {
@@ -35,8 +35,7 @@ class CpuPanel extends React.Component<CpuPanelProps, CpuPanelState> {
   }
 
   private _loadCpuUsage() {
-    osu.cpu
-      .usage()
+    loadCpuUsage()
       .then(percentage => {
         this.setState({ percentageText: Math.trunc(percentage).toString() });
       })
