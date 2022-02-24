@@ -1,6 +1,6 @@
-import osu from 'node-os-utils';
 import React from 'react';
 import { MdMemory } from 'react-icons/md';
+import { loadMemory } from '@/lib/memory';
 import Panel from '.';
 
 export type MemoryPanelProps = {
@@ -22,13 +22,13 @@ class MemoryPanel extends React.Component<MemoryPanelProps, MemoryPanelState> {
       totalMbText: '??',
       usageMbText: '??',
     };
-    this._loadMemoryUsage = this._loadMemoryUsage.bind(this);
+    this._loadMemory = this._loadMemory.bind(this);
   }
 
   componentDidMount() {
-    this._loadMemoryUsage();
+    this._loadMemory();
     this._intervalId = window.setInterval(() => {
-      this._loadMemoryUsage();
+      this._loadMemory();
     }, 1000);
   }
 
@@ -36,11 +36,11 @@ class MemoryPanel extends React.Component<MemoryPanelProps, MemoryPanelState> {
     clearInterval(this._intervalId);
   }
 
-  private _loadMemoryUsage() {
-    osu.mem.used().then(memory => {
+  private _loadMemory() {
+    loadMemory().then(memory => {
       this.setState({
-        totalMbText: Math.trunc(memory.totalMemMb).toString(),
-        usageMbText: Math.trunc(memory.usedMemMb).toString(),
+        totalMbText: Math.trunc(memory.totalMb).toString(),
+        usageMbText: Math.trunc(memory.usedMb).toString(),
       });
     });
   }
