@@ -1,6 +1,6 @@
-import axios from 'axios';
 import React from 'react';
 import { MdWifiTethering, MdWifiTetheringOff } from 'react-icons/md';
+import { fetchPublicIp } from '@/lib/ip';
 import Panel from '.';
 
 export type IpPanelProps = {
@@ -43,10 +43,9 @@ class IpPanel extends React.Component<IpPanelProps, IpPanelState> {
       return;
     }
 
-    axios
-      .get('https://checkip.amazonaws.com/')
-      .then(response => {
-        this.setState({ ip: response.data, online });
+    fetchPublicIp()
+      .then(ip => {
+        this.setState({ ip, online });
       })
       .catch(err => {
         console.error(err);
