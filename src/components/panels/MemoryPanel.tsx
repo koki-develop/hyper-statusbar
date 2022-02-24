@@ -22,16 +22,22 @@ class MemoryPanel extends React.Component<MemoryPanelProps, MemoryPanelState> {
       totalMbText: '??',
       usageMbText: '??',
     };
+    this.loadMemoryUsage = this.loadMemoryUsage.bind(this);
+  }
+
+  loadMemoryUsage() {
+    osu.mem.used().then(memory => {
+      this.setState({
+        totalMbText: Math.trunc(memory.totalMemMb).toString(),
+        usageMbText: Math.trunc(memory.usedMemMb).toString(),
+      });
+    });
   }
 
   componentDidMount() {
+    this.loadMemoryUsage();
     this._intervalId = window.setInterval(() => {
-      osu.mem.used().then(memory => {
-        this.setState({
-          totalMbText: Math.trunc(memory.totalMemMb).toString(),
-          usageMbText: Math.trunc(memory.usedMemMb).toString(),
-        });
-      });
+      this.loadMemoryUsage();
     }, 1000);
   }
 

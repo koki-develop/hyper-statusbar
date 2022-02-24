@@ -20,13 +20,16 @@ class ClockPanel extends React.Component<ClockPanelProps, ClockPanelState> {
     this.state = {
       now: new Date(),
     };
+    this.setNow = this.setNow.bind(this);
+  }
+
+  setNow() {
+    this.setState({ now: new Date() });
   }
 
   componentDidMount() {
     this._intervalId = window.setInterval(() => {
-      this.setState({
-        now: new Date(),
-      });
+      this.setNow();
     }, 500);
   }
 

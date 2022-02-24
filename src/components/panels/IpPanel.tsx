@@ -22,25 +22,31 @@ class IpPanel extends React.Component<IpPanelProps, IpPanelState> {
       ip: '?.?.?.?',
       online: navigator.onLine,
     };
+    this.fetchPublicIp = this.fetchPublicIp.bind(this);
+  }
+
+  fetchPublicIp() {
+    const online = navigator.onLine;
+    if (!online) {
+      this.setState({ ip: '(offline)', online });
+      return;
+    }
+
+    axios
+      .get('https://checkip.amazonaws.com/')
+      .then(response => {
+        this.setState({ ip: response.data, online });
+      })
+      .catch(err => {
+        console.error(err);
+        this.setState({ ip: '(failed)', online });
+      });
   }
 
   componentDidMount() {
+    this.fetchPublicIp();
     this._intervalId = window.setInterval(() => {
-      const online = navigator.onLine;
-      if (!online) {
-        this.setState({ ip: '(offline)', online });
-        return;
-      }
-
-      axios
-        .get('https://checkip.amazonaws.com/')
-        .then(response => {
-          this.setState({ ip: response.data, online });
-        })
-        .catch(err => {
-          console.error(err);
-          this.setState({ ip: '(failed)', online });
-        });
+      this.fetchPublicIp();
     }, 5000);
   }
 

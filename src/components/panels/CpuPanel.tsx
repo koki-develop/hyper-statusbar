@@ -20,19 +20,25 @@ class CpuPanel extends React.Component<CpuPanelProps, CpuPanelState> {
     this.state = {
       percentageText: '??',
     };
+    this.loadCpuUsage = this.loadCpuUsage.bind(this);
+  }
+
+  loadCpuUsage() {
+    osu.cpu
+      .usage()
+      .then(percentage => {
+        this.setState({ percentageText: Math.trunc(percentage).toString() });
+      })
+      .catch(err => {
+        console.error(err);
+        this.setState({ percentageText: '(failed)' });
+      });
   }
 
   componentDidMount() {
+    this.loadCpuUsage();
     this._intervalId = window.setInterval(() => {
-      osu.cpu
-        .usage()
-        .then(percentage => {
-          this.setState({ percentageText: Math.trunc(percentage).toString() });
-        })
-        .catch(err => {
-          console.error(err);
-          this.setState({ percentageText: '(failed)' });
-        });
+      this.loadCpuUsage();
     }, 1000);
   }
 
