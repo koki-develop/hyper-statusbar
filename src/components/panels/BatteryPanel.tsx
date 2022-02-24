@@ -76,14 +76,14 @@ class BatteryPanel extends React.Component<
       percentageText: '??',
     };
 
-    this.handleBatteryEvent = this.handleBatteryEvent.bind(this);
+    this._handleBatteryEvent = this._handleBatteryEvent.bind(this);
   }
 
   componentDidMount() {
     navigator.getBattery().then(battery => {
-      this.setBatteryState(battery);
+      this._setBatteryState(battery);
       for (const event of batteryEvents) {
-        battery.addEventListener(event, this.handleBatteryEvent);
+        battery.addEventListener(event, this._handleBatteryEvent);
       }
     });
   }
@@ -91,17 +91,17 @@ class BatteryPanel extends React.Component<
   componentWillUnmount() {
     navigator.getBattery().then(battery => {
       for (const event of batteryEvents) {
-        battery.removeEventListener(event, this.handleBatteryEvent);
+        battery.removeEventListener(event, this._handleBatteryEvent);
       }
     });
   }
 
-  handleBatteryEvent(event: Event) {
+  private _handleBatteryEvent(event: Event) {
     const battery = event.target as BatteryManager;
-    this.setBatteryState(battery);
+    this._setBatteryState(battery);
   }
 
-  setBatteryState(battery: BatteryManager) {
+  private _setBatteryState(battery: BatteryManager) {
     const percentage = Math.trunc(battery.level * 100);
     const batteryIconLevel: BatteryIconLevel = (() => {
       switch (true) {

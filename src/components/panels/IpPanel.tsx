@@ -22,10 +22,21 @@ class IpPanel extends React.Component<IpPanelProps, IpPanelState> {
       ip: '?.?.?.?',
       online: navigator.onLine,
     };
-    this.fetchPublicIp = this.fetchPublicIp.bind(this);
+    this._fetchPublicIp = this._fetchPublicIp.bind(this);
   }
 
-  fetchPublicIp() {
+  componentDidMount() {
+    this._fetchPublicIp();
+    this._intervalId = window.setInterval(() => {
+      this._fetchPublicIp();
+    }, 5000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this._intervalId);
+  }
+
+  private _fetchPublicIp() {
     const online = navigator.onLine;
     if (!online) {
       this.setState({ ip: '(offline)', online });
@@ -41,17 +52,6 @@ class IpPanel extends React.Component<IpPanelProps, IpPanelState> {
         console.error(err);
         this.setState({ ip: '(failed)', online });
       });
-  }
-
-  componentDidMount() {
-    this.fetchPublicIp();
-    this._intervalId = window.setInterval(() => {
-      this.fetchPublicIp();
-    }, 5000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this._intervalId);
   }
 
   render() {
