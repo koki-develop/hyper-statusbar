@@ -54,7 +54,7 @@ export type BatteryPanelProps = {
 
 export type BatteryPanelState = {
   icon: IconType;
-  percentageText: string;
+  battery: BatteryManager | null;
 };
 
 const batteryEvents: (keyof BatteryManagerEventTargetEventMap)[] = [
@@ -73,8 +73,8 @@ class BatteryPanel extends React.Component<
   constructor(props: BatteryPanelProps) {
     super(props);
     this.state = {
+      battery: null,
       icon: MdBatteryUnknown,
-      percentageText: '??',
     };
 
     this._handleBatteryEvent = this._handleBatteryEvent.bind(this);
@@ -103,20 +103,19 @@ class BatteryPanel extends React.Component<
   }
 
   private _setBatteryState(battery: BatteryManager) {
-    const percentage = Math.trunc(battery.level * 100);
     const batteryIconLevel: BatteryIconLevel = (() => {
       switch (true) {
-        case percentage > 90:
+        case battery.level > 0.9:
           return 100;
-        case percentage > 80:
+        case battery.level > 0.8:
           return 90;
-        case percentage > 70:
+        case battery.level > 0.7:
           return 80;
-        case percentage > 50:
+        case battery.level > 0.5:
           return 60;
-        case percentage > 40:
+        case battery.level > 0.4:
           return 50;
-        case percentage > 20:
+        case battery.level > 0.2:
           return 30;
         default:
           return 20;
@@ -124,13 +123,19 @@ class BatteryPanel extends React.Component<
     })();
 
     this.setState({
+      battery,
       icon: getBatteryIcon(batteryIconLevel, battery.charging),
-      percentageText: percentage.toString(),
     });
   }
 
   render() {
-    return <Panel icon={this.state.icon}>{this.state.percentageText}%</Panel>;
+    return (
+      <Panel icon={this.state.icon}>
+        {this.state.battery
+          ? `${Math.trunc(this.state.battery.level * 100)}%`
+          : '??%'}
+      </Panel>
+    );
   }
 }
 
