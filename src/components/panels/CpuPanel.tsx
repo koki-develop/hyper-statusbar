@@ -8,7 +8,7 @@ export type CpuPanelProps = {
 };
 
 export type CpuPanelState = {
-  percentageText: string;
+  percentage: number | null;
 };
 
 class CpuPanel extends React.Component<CpuPanelProps, CpuPanelState> {
@@ -18,7 +18,7 @@ class CpuPanel extends React.Component<CpuPanelProps, CpuPanelState> {
   constructor(props: CpuPanelProps) {
     super(props);
     this.state = {
-      percentageText: '??',
+      percentage: null,
     };
     this._loadCpuUsage = this._loadCpuUsage.bind(this);
   }
@@ -35,18 +35,17 @@ class CpuPanel extends React.Component<CpuPanelProps, CpuPanelState> {
   }
 
   private _loadCpuUsage() {
-    loadCpuUsage()
-      .then(percentage => {
-        this.setState({ percentageText: Math.trunc(percentage).toString() });
-      })
-      .catch(err => {
-        console.error(err);
-        this.setState({ percentageText: '(failed)' });
-      });
+    loadCpuUsage().then(percentage => {
+      this.setState({ percentage });
+    });
   }
 
   render() {
-    return <Panel icon={BsCpu}>{this.state.percentageText}%</Panel>;
+    return (
+      <Panel icon={BsCpu}>
+        {this.state.percentage !== null ? `${this.state.percentage}%` : '??%'}
+      </Panel>
+    );
   }
 }
 
