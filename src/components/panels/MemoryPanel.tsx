@@ -1,6 +1,6 @@
 import React from 'react';
 import { MdMemory } from 'react-icons/md';
-import { loadMemory } from '@/lib/memory';
+import { loadMemory, Memory } from '@/lib/memory';
 import Panel from '.';
 
 export type MemoryPanelProps = {
@@ -8,8 +8,7 @@ export type MemoryPanelProps = {
 };
 
 export type MemoryPanelState = {
-  totalMbText: string;
-  usageMbText: string;
+  memory: Memory | null;
 };
 
 class MemoryPanel extends React.Component<MemoryPanelProps, MemoryPanelState> {
@@ -19,8 +18,7 @@ class MemoryPanel extends React.Component<MemoryPanelProps, MemoryPanelState> {
   constructor(props: MemoryPanelProps) {
     super(props);
     this.state = {
-      totalMbText: '??',
-      usageMbText: '??',
+      memory: null,
     };
     this._loadMemory = this._loadMemory.bind(this);
   }
@@ -39,8 +37,7 @@ class MemoryPanel extends React.Component<MemoryPanelProps, MemoryPanelState> {
   private _loadMemory() {
     loadMemory().then(memory => {
       this.setState({
-        totalMbText: Math.trunc(memory.totalMb).toString(),
-        usageMbText: Math.trunc(memory.usedMb).toString(),
+        memory,
       });
     });
   }
@@ -48,7 +45,9 @@ class MemoryPanel extends React.Component<MemoryPanelProps, MemoryPanelState> {
   render() {
     return (
       <Panel icon={MdMemory}>
-        {this.state.usageMbText}MB / {this.state.totalMbText}MB
+        {this.state.memory
+          ? `${this.state.memory.usedMb}MB / ${this.state.memory.totalMb}MB`
+          : '??MB / ??MB'}
       </Panel>
     );
   }
