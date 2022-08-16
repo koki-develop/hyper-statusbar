@@ -14,7 +14,7 @@
     "@babel/preset-react": "7.16.7",
     "@babel/preset-typescript": "7.16.7",
     "@types/node-os-utils": "1.2.0",
-    "@types/react": "17.0.39",
+    "@types/react": "17.0.48",
     "@typescript-eslint/eslint-plugin": "5.12.1",
     "@typescript-eslint/parser": "5.12.1",
     "babel-loader": "8.2.3",
