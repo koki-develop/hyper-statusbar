@@ -10,14 +10,14 @@
     "fmt": "yarn lint --fix && prettier --write ."
   },
   "devDependencies": {
-    "@babel/core": "7.17.5",
-    "@babel/preset-react": "7.16.7",
-    "@babel/preset-typescript": "7.16.7",
+    "@babel/core": "7.18.10",
+    "@babel/preset-react": "7.18.6",
+    "@babel/preset-typescript": "7.18.6",
     "@types/node-os-utils": "1.2.0",
     "@types/react": "17.0.48",
     "@typescript-eslint/eslint-plugin": "5.12.1",
     "@typescript-eslint/parser": "5.12.1",
-    "babel-loader": "8.2.3",
+    "babel-loader": "8.2.5",
     "eslint": "8.9.0",
     "eslint-config-prettier": "8.4.0",
     "eslint-import-resolver-typescript": "2.7.1",
