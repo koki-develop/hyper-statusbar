@@ -470,10 +470,10 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
-"@types/node-os-utils@1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@types/node-os-utils/-/node-os-utils-1.2.0.tgz#d03286eca0642f861cbee506bc1f4dd868a15826"
-  integrity sha512-sstDo2s8gQR/Qh2Bd6yNQ5xJv+D4ttyB9ZVjB3mBm3VkGl2RoqjV7fiw9mIHLbshHSRm2m8uf0XrIRQNWB/z6A==
+"@types/node-os-utils@1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@types/node-os-utils/-/node-os-utils-1.3.0.tgz#df06d65292a4ccf99d332e39c4f64e94c538fad5"
+  integrity sha512-XwVteWQx/XkfRPyaGkw8dEbrCAkoRZ73pI3XznUYIpzbCfpQB3UnDlR5TnmdhetlT889tUJGF8QWo9xrgTpsiA==
 
 "@types/node@*":
   version "17.0.19"
@@ -2202,10 +2202,10 @@ node-abort-controller@^3.0.1:
   resolved "https://registry.yarnpkg.com/node-abort-controller/-/node-abort-controller-3.0.1.tgz#f91fa50b1dee3f909afabb7e261b1e1d6b0cb74e"
   integrity sha512-/ujIVxthRs+7q6hsdjHMaj8hRG9NuWmwrz+JdRwZ14jdFoKSkm+vDsCbF9PLpnSqjaWQJuTmVtcWHNLr+vrOFw==
 
-node-os-utils@1.3.6:
-  version "1.3.6"
-  resolved "https://registry.yarnpkg.com/node-os-utils/-/node-os-utils-1.3.6.tgz#92ec217972436df67b677f9c939aac57eda2804c"
-  integrity sha512-WympE9ELtdOzNak/rAuuIV5DwvX/PTJtN0LjyWeGyTTR2Kt0sY56ldLoGbVBnfM1dz46VeO3sHcNZI5BZ+EB+w==
+node-os-utils@1.3.7:
+  version "1.3.7"
+  resolved "https://registry.yarnpkg.com/node-os-utils/-/node-os-utils-1.3.7.tgz#77cc341ae39584e12d3aadf6046fe420ff4c9340"
+  integrity sha512-fvnX9tZbR7WfCG5BAy3yO/nCLyjVWD6MghEq0z5FDfN+ZXpLWNITBdbifxQkQ25ebr16G0N7eRWJisOcMEHG3Q==
 
 node-releases@^2.0.2:
   version "2.0.2"
